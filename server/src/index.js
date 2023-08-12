@@ -12,8 +12,12 @@ app.use(cors());
 
 app.use("/auth", userRouter);
 
-//Use environment variable to store the passwords and important things
-mongoose.connect("mongodb+srv://fahadaameer:Zaahil33@recipes.o2o7sal.mongodb.net/recipes?retryWrites=true&w=majority")
+main().catch(err => console.log(err));
+
+async function main() {
+    //Use environment variable to store the passwords and important things
+    await mongoose.connect("mongodb+srv://fahadaameer:Zaahil33@recipes.o2o7sal.mongodb.net/recipes?retryWrites=true&w=majority");
+}
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
